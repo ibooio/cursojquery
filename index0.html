@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos.css" type="text/css">
+    <script src="jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        /*$('p').first().on('click', function(){
+          alert($(this).text());
+          $(this).off('click');
+        });*/
+        $('p').on('click', function(){
+          alert('click');
+        });
+      })
+
+
+    </script>
+  </head>
+  <body>
+    <div id="misparrafosabuelo">
+      <div id="misparrafos" data-nombre="Manuel">
+        <p id="primerparrafo">Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <div>
+          <p class="rojo azul">Parrafo 3</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

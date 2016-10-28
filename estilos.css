@@ -1,3 +1,9 @@
-li {
-  
+.caja{
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  height: 100px;
+  border: 1px solid #111;
+  float: left;
+  margin: 2px;
 }

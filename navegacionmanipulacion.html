@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos.css" type="text/css">
+    <script src="jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+
+      })
+
+      function añadirParrafo(){
+        //var p= $('div p').first();
+        //var nuevo = $('<p>Nuevo parrafo</p>').insertBefore(p);
+        //$(nuevo).css('color', 'red');
+        //var nuevo = $('<p>Nuevo parrafo</p>').insertAfter(p);
+        //$(nuevo).css('color', 'red');
+        //$(p).before('<p>Nuevo parrafo</p>');
+        //$('#misparrafos').prepend('<p>Nuevo parrafo</p>');
+        $('<p>Nuevo parrafo</p>').prependTo($('#misparrafos'));
+      }
+
+      function añadirParrafoAlFinal(){
+        //var p= $('div p').last();
+        //$(p).after('<p>Nuevo parrafo al final</p>');
+      }
+
+      function quitarParrafo(){
+        //var p= $('div p').first();
+        //$(p).remove();
+        //$('div p').first().remove();
+      }
+
+      function quitarUltimoParrafo(){
+        //$('div p').last().remove();
+      }
+
+      function prueba(){
+        //$('p').first().parent().remove();
+        //console.log($('p').first().parents());
+        //console.log($('p').first().parentsUntil('body'));
+        //console.log($('p').first().closest('#misparrafosabuelo'));
+        //console.log($('#misparrafos').children());
+        //console.log($('#misparrafosabuelo').find('p'));
+        $('#primerparrafo').prev().remove();
+        $('#primerparrafo').siblings().remove();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="misparrafosabuelo">
+      <div id="misparrafos">
+        <p id="primerparrafo">Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <div>
+          <p>Parrafo 3</p>
+        </div>
+      </div>
+    </div>
+    <input type="button" value="Prueba" onclick="prueba()">
+    <input type="button" value="Añadir parrafo" onclick="añadirParrafo()">
+    <input type="button" value="Añadir parrafo al final" onclick="añadirParrafoAlFinal()">
+    <input type="button" value="Quitar parrafo" onclick="quitarParrafo()">
+    <input type="button" value="Quitar último parrafo" onclick="quitarUltimoParrafo()">
+  </body>
+</html>

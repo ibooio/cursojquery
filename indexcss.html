@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos.css" type="text/css">
+    <script src="jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+
+      })
+
+      function prueba(){
+        //$('p').css('color', 'red');
+        //$('p').last().css('display', 'none').css('display', 'block');
+        //$('p').css('color', 'red');
+        //$('p').last().addClass('rojo');
+        //$('p').last().addClass('rojo azul');
+        //$('p').last().removeClass('rojo');
+        //$('p').last().toggleClass('rojo');
+        //alert($('p').last().hasClass('rojo'));
+        //$('#misparrafos').data('nombre', 'Pedro');
+        //alert($('#misparrafos').data('nombre'));
+        $('p').each(function(index, element){
+          //console.log(index);
+          //console.log(element);
+          console.log($(this).text());
+          //console.log($(element).text());
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="misparrafosabuelo">
+      <div id="misparrafos" data-nombre="Manuel">
+        <p id="primerparrafo">Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <div>
+          <p class="rojo azul">Parrafo 3</p>
+        </div>
+      </div>
+    </div>
+    <input type="button" value="Prueba" onclick="prueba()">
+  </body>
+</html>
