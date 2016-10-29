@@ -1,3 +1,8 @@
+#contenedor{
+  float: left;
+  width: 100%;
+}
+
 .caja{
   width: 100px;
   line-height: 100px;
@@ -6,4 +11,21 @@
   border: 1px solid #111;
   float: left;
   margin: 2px;
+}
+
+
+.rojo{
+  background-color: red;
+}
+
+#datos2{
+  position: absolute;
+}
+
+#datos{
+  min-height: 100px;
+  width: 100%;
+  background-color: rgba(255, 255, 0, .2);
+  z-index: 1000;
+  position: absolute;
 }

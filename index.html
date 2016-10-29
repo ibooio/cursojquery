@@ -9,15 +9,51 @@
       $(document).ready(function(){
 
 
+        $('#mostrarPersonas').on('click', function(){
+          $.ajax(
+            {
+              dataType: "json",
+              url: "http://localhost/jquery/personas.php"
+            }
+          ).done(
+            function(data){
+              $('#datos').fadeOut(1000).html('');
+              for(var i=0; i<data.length; i++){
+                $('#datos').append('<b>'+ data[i].nombre +'</b><br>');
+              }
+            }
+          );
+        });
+        $('#mostrarAnimales').on('click', function(){
+          $.ajax(
+            {
+              dataType: "json",
+              url: "http://localhost/jquery/animales.php"
+            }
+          ).done(
+            function(data){
+              $('#datos').html('');
+              for(var i=0; i<data.length; i++){
+                $('#datos').append('<b>'+ data[i].nombre +'</b><br>');
+              }
+            }
+          );
+        });
+
+
       });
     </script>
   </head>
   <body>
-    <div id="contenedor">
-      <div class="caja" data-texto="Caja 1"></div>
-      <div class="caja" data-texto="Caja 2"></div>
-      <div class="caja" data-texto="Caja 3"></div>
-      <div class="caja" data-texto="Caja 4"></div>
+    <div id="datos2">
+      Hola
+    </div>
+    <div id="datos">
+
+    </div>
+    <div>
+      <input id="mostrarPersonas" type="button" value="Mostrar personas"/>
+      <input id="mostrarAnimales" type="button" value="Mostrar animales"/>
     </div>
   </body>
 </html>

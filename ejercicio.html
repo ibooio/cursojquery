@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos.css" type="text/css">
+    <script src="jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+
+        function asignarEventos(obj){
+          $(obj).on({
+            click: function(){ $(this).toggleClass('rojo');  },
+            dblclick: function(){ $(this).remove();  },
+            mouseenter: function(){ $(this).text($(this).data('texto')); },
+            mouseleave: function(){ $(this).text(''); }
+          });
+        }
+        asignarEventos($('.caja'));
+
+/*        $('#contenedor').on('click', '.caja'  ,function(){
+          $(this).toggleClass('rojo');
+        }).on('dblclick', '.caja', function(){
+          $(this).remove();
+        }).on('mouseenter', '.caja', function(){
+          var texto= $(this).data('texto');
+          $(this).text(texto);
+        }).on('mouseleave', '.caja', function(){
+          $(this).text('');
+        });*/
+
+        /*$('.caja').on({
+          click: function(){ $(this).toggleClass('rojo');  },
+          dblclick: function(){ $(this).remove();  },
+          mouseenter: function(){ $(this).text($(this).data('texto')); },
+          mouseleave: function(){ $(this).text(''); }
+        });*/
+
+        $('#btn1').on('click', function(){
+          var obj= $('<div class="caja" data-texto="Caja 1"></div>').prependTo('#contenedor');
+          asignarEventos(obj);
+          $('.caja').each(function(index, elemento){
+            $(this).data('texto','Caja ' + (index+1));
+          });
+
+          //$('#contenedor').prepend('<div class="caja" data-texto="Caja 1"></div>');
+        });
+        $('#btn2').on('click', function(){
+          var obj= $('<div class="caja" data-texto="Caja '+ ( $('.caja').length + 1) +'"></div>').appendTo('#contenedor');
+          asignarEventos(obj);
+          //$('#contenedor').append('<div class="caja" data-texto="Caja 1"></div>');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="contenedor">
+      <div class="caja" data-texto="Caja 1"></div>
+      <div class="caja" data-texto="Caja 2"></div>
+      <div class="caja" data-texto="Caja 3"></div>
+      <div class="caja" data-texto="Caja 4"></div>
+    </div>
+    <div>
+      <input id="btn1" type="button" value="Añadir caja al principio">
+      <input id="btn2" type="button" value="Añadir caja al final">
+    </div>
+
+
+  </body>
+</html>
